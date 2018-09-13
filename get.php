@@ -15,7 +15,11 @@ exit();
 }
 
 if (isset($_GET['last'])) {
-  $sql = "SELECT * FROM " . $room . " ORDER BY datetime DESC LIMIT 1";
+  if (($_GET['last'] > 0) && ($_GET['last'] < 100) && (ctype_digit($_GET['last']))) {
+    $sql = "SELECT * FROM " . $room . " ORDER BY datetime DESC LIMIT " . $_GET['last'];
+  } else {
+    $sql = "SELECT * FROM " . $room . " ORDER BY datetime DESC LIMIT 1";
+  }
 } else {
   $datetimefrom = $_GET['from'];  //format "2018.09.08-18:26:00"
   $datetimeto = $_GET['to'];
