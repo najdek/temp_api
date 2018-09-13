@@ -16,9 +16,9 @@ exit();
 
 if (isset($_GET['last'])) {
   if (($_GET['last'] > 0) && ($_GET['last'] < 100) && (ctype_digit($_GET['last']))) {
-    $sql = "SELECT * FROM " . $room . " ORDER BY datetime DESC LIMIT " . $_GET['last'];
+    $sql = "SELECT * FROM room_" . $room . " ORDER BY datetime DESC LIMIT " . $_GET['last'];
   } else {
-    $sql = "SELECT * FROM " . $room . " ORDER BY datetime DESC LIMIT 1";
+    $sql = "SELECT * FROM room_" . $room . " ORDER BY datetime DESC LIMIT 1";
   }
 } else {
   $datetimefrom = $_GET['from'];  //format "2018.09.08-18:26:00"
@@ -45,7 +45,7 @@ if (isset($_GET['last'])) {
   if ($datediff > 31) {
     exit();
   }
-  $sql = "SELECT * FROM " . $room . " WHERE datetime between '" . $datetimefrom . "' and '" . $datetimeto . "'";
+  $sql = "SELECT * FROM room_" . $room . " WHERE datetime between '" . $datetimefrom . "' and '" . $datetimeto . "'";
 }
 
 $output = array();

@@ -22,7 +22,7 @@ if (ctype_alnum(str_replace('.', '', $temp))) {
 exit();
 }
 $datetime = date('Y-m-d H:i:s');
-$sql = "INSERT INTO " . $room . " (datetime,temperature) VALUES ('" . $datetime . "','" . $temp . "')";
+$sql = "INSERT INTO room_" . $room . " (datetime,temperature) VALUES ('" . $datetime . "','" . $temp . "')";
 
 //echo $sql;
 
