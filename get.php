@@ -21,16 +21,22 @@ if (isset($_GET['last'])) {
     $sql = "SELECT * FROM room_" . $room . " ORDER BY datetime DESC LIMIT 1";
   }
 } else {
-  $datetimefrom = $_GET['from'];  //format "2018.09.08-18:26:00"
-  $datetimeto = $_GET['to'];
-  if (ctype_alnum(str_replace(array(".", "-", ":"), '', $datetimefrom))) {
+  if (isset($_GET['lastday'])) {
+    $datetimeto = date('Y-m-d H:i:s');
+    $datetimefrom = date("Y-m-d H:i:s", strtotime("-24 hours"));
   } else {
-    exit();
+    $datetimefrom = $_GET['from'];  //format "2018.09.08-18:26:00"
+    $datetimeto = $_GET['to'];
+    if (ctype_alnum(str_replace(array(".", "-", ":"), '', $datetimefrom))) {
+    } else {
+      exit();
+    }
+    if (ctype_alnum(str_replace(array(".", "-", ":"), '', $datetimeto))) {
+    } else {
+      exit();
+    }
   }
-  if (ctype_alnum(str_replace(array(".", "-", ":"), '', $datetimeto))) {
-  } else {
-    exit();
-  }
+
   $datefrom = explode("-", $datetimefrom)[0];
   $datefrom = str_replace(".", "-", $datefrom);
   $datefrom = strtotime($datefrom);
