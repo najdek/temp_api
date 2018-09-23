@@ -77,7 +77,7 @@ if($sql_result = mysqli_query($link, $sql)) {
   while ($sql_row = $sql_result->fetch_assoc()) {
     $output[$sql_row['datetime']] = $sql_row['temperature'];
   }
-  if ($average == "hour" || $average == "day") {
+  if (isset($average) && ($average == "hour" || $average == "day")) {
     $outputaverage = array();
     foreach ($output as $datetime => $temperature) {
       if ($average == "day") {
