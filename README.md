@@ -1,7 +1,7 @@
 # TEMPERATURE DATABASE API #
 
 ### Add new room to database (not included in api yet): ###
-``CREATE TABLE `temp`.`ROOMNAME` ( `datetime` DATETIME NOT NULL , `temperature` INT(5,2) NOT NULL , UNIQUE (`datetime`)) ENGINE = InnoDB;``
+``CREATE TABLE `temp`.`ROOMNAME` ( `datetime` DATETIME NOT NULL , `temperature` FLOAT(5,2) NOT NULL , UNIQUE (`datetime`)) ENGINE = InnoDB;``
 
 
 ### Add current temperature to database: ###
