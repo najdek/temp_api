@@ -1,5 +1,7 @@
 <?php
 include("config.php");
+ini_set('memory_limit', '256M');
+
 
 $room = $_GET['room'];
 if ($_GET['key'] == $getkey) {
