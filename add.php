@@ -17,7 +17,7 @@ if (ctype_alnum($room)) {
 } else {
 exit();
 }
-if (ctype_alnum(str_replace('.', '', $temp))) {
+if (ctype_alnum(str_replace(array('.', '-'), '', $temp))) {
 } else {
 exit();
 }
